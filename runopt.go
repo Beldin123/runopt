@@ -74,8 +74,8 @@ func printOptions() {
   if mainMenuOn {
 	fmt.Println("")
 	fmt.Println(" 1 - read MPS file     2 - write MPS file    3 - solve problem     4 - reduce matrix")
-	fmt.Println(" 5 - init. lpo struct  6 - show lpo input    7 - show  lpo soln.   8 - show Cplex soln")
-	fmt.Println(" 9 - init. gpx struct 10 - write gpx file   11 - show gpx input   12 - show  gpx soln.")
+	fmt.Println(" 5 - init. lpo struct  6 - show lpo input    7 - show  lpo soln    8 - show Cplex soln")
+	fmt.Println(" 9 - init. gpx struct 10 - write gpx file   11 - show gpx input   12 - show  gpx soln")
   }
 
   if lpoMenuOn {
