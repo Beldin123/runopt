@@ -74,8 +74,8 @@ func printOptions() {
   if mainMenuOn {
 	fmt.Println("")
 	fmt.Println(" 1 - read MPS file     2 - write MPS file    3 - solve problem     4 - reduce matrix")
-	fmt.Println(" 5 - init. lpo struct  6 - show lpo input    7 - show  lpo soln    8 - show Cplex soln")
-	fmt.Println(" 9 - init. gpx struct 10 - write gpx file   11 - show gpx input   12 - show  gpx soln")
+	fmt.Println(" 5 - init. lpo struct  6 - show lpo input    7 - show  lpo soln.   8 - show Cplex soln")
+	fmt.Println(" 9 - init. gpx struct 10 - write gpx file   11 - show gpx input   12 - show  gpx soln.")
   }
 
   if lpoMenuOn {
@@ -288,13 +288,13 @@ func wpSolveProb(solverFlag int) error {
 	// and if this function is called under those conditions, it will return an
 	// error indicating solver is not present.
 	
-	err = errors.New("Requested solver not present")
 	startTime := time.Now()	
+	err = errors.New("Requested solver not present")
 	if useCoinSolver {
 		err = lpo.CoinSolveProb(psCtrl, &psResult)						
 	} else {
 		// GPX_EXCLUDED: Comment out the following line if gpx is not installed.
-		err = lpo.CplexSolveProb(psCtrl, &psResult)			
+	  	err = lpo.CplexSolveProb(psCtrl, &psResult)			
 	}	
 	endTime := time.Now()
 			
@@ -759,8 +759,6 @@ func wpPrintLpoSoln() {
 // the available commands. All commands are available even if the corresponding menu
 // item is "hidden". The function accepts no arguments and returns no values.
 func runWrapper() {
-
-//	var fileName      string  // file name
 	var cmdOption     string  // command option
 	var err            error  // error returned by called functions
 
@@ -847,8 +845,7 @@ func runWrapper() {
 			return
 
 
-		//------------- Functions exercised by main wrapper --------------------
-
+		//------------- Commands handled by secondary wrappers -----------------
 									
 		default:
 
@@ -867,10 +864,9 @@ func runWrapper() {
 			}
 */
 
-
 			if mainMenuOn {
 				if err = runMainWrapper(cmdOption); err == nil {
-					// Found the command in main lpo menu, continue
+					// Found the command in main menu, continue
 					continue
 				}
 			}
@@ -882,15 +878,17 @@ func runWrapper() {
 				}
 			}
 
-
 			if gpxMenuOn {
-				if err = runGpxWrapper(cmdOption); err == nil {
+				err = errors.New("Command not avilable")				
+				// GPX_EXCLUDED: Comment out the following line if gpx is not installed.
+				err = runGpxWrapper(cmdOption)
+				if err == nil {
 					// Found the command in gpx menu, continue
 					continue
 				}
 			}
 
-
+			// Did not find the command anywhere
 			fmt.Printf("Unsupported option: '%s'\n", cmdOption)
 			printOptions()
 						
