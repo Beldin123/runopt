@@ -58,12 +58,10 @@ so that the new code reads as follows:
     // GPX_EXCLUDED: Comment out the following line if gpx is not installed.
     // err = runGpxWrapper(cmdOption)
     if err == nil {
-      // Found the command in gpx menu, continue
+      // Found the command in gpx menu
       continue
     }
-  }
-  
+  }  
   ...
- 
 ```
-Once you have made these changes, you can compile and use lpo without gpx.
+Once you have made these changes, you can compile and use runopt without gpx.
