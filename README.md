@@ -42,15 +42,13 @@ In the runopt.go file, search for the GPX_EXCLUDED string and comment out the co
 so that the new code reads as follows:
 ```
   ...
-
   err = errors.New("Requested solver not present")
   if useCoinSolver {
     err = lpo.CoinSolveProb(psCtrl, &psResult)						
   } else {
     // GPX_EXCLUDED: Comment out the following line if gpx is not installed.
     // err = lpo.CplexSolveProb(psCtrl, &psResult)			
-  }
-  
+  }  
   ...
   
   if gpxMenuOn {
