@@ -1,7 +1,9 @@
 # Command runopt
 
 The runopt executable is a wrapper for exercising functions exported by the lpo and gpx packages which provide a suite
-of Go language tools for Linear Programming (LP) and Mixed-Integer Linear Programming (MILP).
+of Go language tools for Linear Programming (LP) and Mixed-Integer Linear Programming (MILP). It was developed as a test
+tool and assumes that the user is aware of the proper sequence in which individual functions need to be called in order
+to achieve the desired result.
 
 # Dependencies
 
