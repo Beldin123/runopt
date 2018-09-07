@@ -66,6 +66,6 @@ Once you have made these changes, you can compile and use runopt without gpx.
 
 ## Configuring runopt without lpo
 
-Although it is possible to use runopt without lpo in order to exercise only gpx functions. However, modifications to
+It is possible to use runopt without lpo in order to exercise only gpx functions. However, modifications to
 exclude lpo would require a larger number of changes similar to the ones used to exclude gpx, and would remove most of
-the functionality which runopt was designed to provide. Using runopt without lpo is not recommended.
+the functionality which runopt was designed to provide. Using runopt without lpo is therefore not recommended.
