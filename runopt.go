@@ -879,7 +879,7 @@ func runWrapper() {
 			}
 
 			if gpxMenuOn {
-				err = errors.New("Command not avilable")				
+				err = errors.New("Command not available")				
 				// GPX_EXCLUDED: Comment out the following line if gpx is not installed.
 				err = runGpxWrapper(cmdOption)
 				if err == nil {
